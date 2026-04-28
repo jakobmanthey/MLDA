@@ -62,6 +62,7 @@ pcol <- viridis::plasma(1)
 # -------------------------------------------------------
 
 path <- file.path("input", "2024-05-17_Alcohol Policy Scale_Age limits_All countries.xlsx")
+path <- file.path("input", "2026-04-16_Alcohol Policy Scale_Age limits_All countries.xlsx")
 input1 <- data.table(read.xlsx(xlsxFile = path))
 
 nrow(input1) # 73
