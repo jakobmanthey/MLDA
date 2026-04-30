@@ -63,6 +63,7 @@ pcol <- viridis::plasma(1)
 
 path <- file.path("input", "2024-05-17_Alcohol Policy Scale_Age limits_All countries.xlsx")
 path <- file.path("input", "2026-04-16_Alcohol Policy Scale_Age limits_All countries.xlsx")
+path <- file.path("input", "2026-04-30_Alcohol Policy Scale_Age limits_All countries.xlsx")
 input1 <- data.table(read.xlsx(xlsxFile = path))
 
 nrow(input1) # 73
@@ -104,7 +105,7 @@ nrow(input3) # 22950
 
 mldadat <- copy(input1)
 mldadat <- mldadat[1:62]
-mldadat$X1 <- mldadat$X35 <- mldadat$X36 <- NULL
+mldadat$X1 <- mldadat$X40 <- mldadat$X41 <- NULL
 
 mldadat[, country := zoo::na.locf(COUNTRY)]
 mldadat[,.(country,COUNTRY)]
@@ -153,7 +154,7 @@ popdat[, pop_all := sum(pop), by = .(country,year)]
 
 ggplot(data = popdat[country %like% "Austria|Germany|Finland|Italy"], aes(x = year, y = pop_all, color = country)) + 
   geom_line() + 
-  geom_vline(xintercept = 2024)
+  geom_vline(xintercept = 2024) # looks plausible, no break between observed and forecasted
 
 
 ## 2.3) Combine
