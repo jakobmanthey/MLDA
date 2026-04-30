@@ -62,7 +62,7 @@ pcol <- viridis::plasma(1)
 ##  MLDA data
 # -------------------------------------------------------
 
-path <- file.path("output", "data_prepared_260417.rds")
+path <- file.path("output", "data_prepared_260430.rds")
 input1 <- data.table(readRDS(file = path))
 
 nrow(input1) # 1612
@@ -160,6 +160,7 @@ covdat[country == "Luxembourg"] #
 covdat[country == "Malta"] # 
 covdat[country == "Netherlands"] # 
 covdat[country == "Portugal"] # 
+covdat[country == "Romania"] # 
 covdat[country == "Slovenia"] # 
 covdat[country == "Spain"] # 
 covdat[country == "United Kingdom"] # 
@@ -212,6 +213,7 @@ ggplot(data = p16, aes(x = year)) +
   geom_vline(xintercept = 2013, linetype = 3) + geom_label(x = 2013, y = 4.5, label = "2013\nItaly") +
   geom_vline(xintercept = 2014, linetype = 3) + geom_label(x = 2014, y = 3.5, label = "2014\nNetherlands") +
   geom_vline(xintercept = 2016, linetype = 3) + geom_label(x = 2016, y = 4.5, label = "2016\nPortugal and Spain") + 
+  geom_vline(xintercept = 2024, linetype = 3) + geom_label(x = 2024, y = 3.5, label = "2024\nRomania") + 
   
   scale_x_continuous("", breaks = seq(2000,2024,2)) + 
   scale_y_continuous("Population of 16-year-olds in 30 European countries (in millions)", expand = F) +
@@ -245,6 +247,8 @@ ggplot(data = p17, aes(x = year)) +
   geom_vline(xintercept = 2013, linetype = 3) + geom_label(x = 2013, y = 4.5, label = "2013\nItaly") +
   geom_vline(xintercept = 2014, linetype = 3) + geom_label(x = 2014, y = 3.5, label = "2014\nNetherlands") +
   geom_vline(xintercept = 2016, linetype = 3) + geom_label(x = 2016, y = 4.5, label = "2016\nPortugal and Spain") + 
+  geom_vline(xintercept = 2024, linetype = 3) + geom_label(x = 2024, y = 3.5, label = "2024\nRomania") + 
+  
   scale_x_continuous("", breaks = seq(2000,2024,2)) + 
   scale_y_continuous("Population of 17-year-olds in 30 European countries (in millions)", expand = F) +
   theme(panel.grid.minor = element_line(color = "gray80",linetype = "dotted"),
